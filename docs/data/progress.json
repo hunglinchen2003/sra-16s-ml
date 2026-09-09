@@ -1,8 +1,9 @@
 {
-  "updated": "2026-09-09 16:38:00 CST",
+  "updated": "2026-09-09 17:47:00 CST",
   "host": "10.0.1.100",
-  "note": "GitHub Pages 每小時同步一次。此次快照來自最近一次成功查詢；主機 SSH 曾短暫連不上時會沿用上一筆。",
+  "note": "GitHub Pages 每小時同步一次。17:47 查詢時主機 SSH（port 22）逾時，以下沿用 16:38 成功連線的數字。",
   "analyze_url": "http://10.0.1.100:8765/",
+  "poll_ok": false,
   "diseases": {
     "IBD": {
       "target": 20,
@@ -30,8 +31,8 @@
     }
   },
   "processes": [
-    "download_sra.py --limit 20 (running)",
-    "prefetch ERR14722499 (NCBI fallback after ENA timeout)"
+    "download_sra.py --limit 20 (16:38 時尚在跑)",
+    "prefetch ERR14722499 (16:38 NCBI fallback)"
   ],
   "qiime_runs": [
     {
@@ -45,5 +46,5 @@
       }
     }
   ],
-  "download_log_tail": "ENA wget for ERR14722499 timed out after ~62KB of 12MB; fallback to NCBI prefetch. CRC and T2D queued behind IBD. Auto-analyze waits until >=4 complete FASTQs per disease."
+  "download_log_tail": "Hourly poll at 17:47 CST: TCP 22 to 10.0.1.100 timed out. Last live data: IBD 1 incomplete FASTQ (~62KB of 12MB), CRC 0, T2D 0. Auto-analyze still waiting for >=4 complete files per disease."
 }
