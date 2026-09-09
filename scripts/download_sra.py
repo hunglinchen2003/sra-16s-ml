@@ -111,7 +111,19 @@ def download_one(run: str, dest: Path, log_path: Path) -> None:
         for u in ena_urls:
             name = u.rstrip("/").split("/")[-1]
             out = fq_dir / name
-            rc = run_cmd(["wget", "-q", "-O", str(out), u], log_path)
+            rc = run_cmd(
+                [
+                    "wget",
+                    "-c",
+                    "--timeout=30",
+                    "--read-timeout=60",
+                    "--tries=3",
+                    "-O",
+                    str(out),
+                    u,
+                ],
+                log_path,
+            )
             if rc != 0:
                 ok = False
                 if out.exists() and out.stat().st_size == 0:
@@ -173,6 +185,13 @@ def main() -> None:
                 download_one(run, dest, log_path)
             except Exception as exc:
                 log(log_path, f"error {run}: {exc}")
+        ingest = Path(__file__).resolve().parent / "ingest_sra_qiime.py"
+        if ingest.exists():
+            log(log_path, f"ingest+analyze {disease}")
+            run_cmd(
+                [sys.executable, str(ingest), "--disease", disease],
+                log_path,
+            )
     print("done")
 
 

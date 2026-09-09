@@ -10,3 +10,6 @@ logs/
 .DS_Store
 scripts/deploy_remote.py
 ssh_run.py
+_remote_pipeline.py
+_remote_main.py
+scripts/_push_ingest.py
