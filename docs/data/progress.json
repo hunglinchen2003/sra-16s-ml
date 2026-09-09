@@ -1,0 +1,49 @@
+{
+  "updated": "2026-09-09 16:38:00 CST",
+  "host": "10.0.1.100",
+  "note": "GitHub Pages 每小時同步一次。此次快照來自最近一次成功查詢；主機 SSH 曾短暫連不上時會沿用上一筆。",
+  "analyze_url": "http://10.0.1.100:8765/",
+  "diseases": {
+    "IBD": {
+      "target": 20,
+      "fastq_files": 1,
+      "fastq_bytes": 63488,
+      "sra_files": 1,
+      "metadata_rows": 0,
+      "ready_for_analyze": false
+    },
+    "CRC": {
+      "target": 20,
+      "fastq_files": 0,
+      "fastq_bytes": 0,
+      "sra_files": 0,
+      "metadata_rows": 0,
+      "ready_for_analyze": false
+    },
+    "T2D": {
+      "target": 20,
+      "fastq_files": 0,
+      "fastq_bytes": 0,
+      "sra_files": 0,
+      "metadata_rows": 0,
+      "ready_for_analyze": false
+    }
+  },
+  "processes": [
+    "download_sra.py --limit 20 (running)",
+    "prefetch ERR14722499 (NCBI fallback after ENA timeout)"
+  ],
+  "qiime_runs": [
+    {
+      "name": "run_852f8cea_20260623_163453",
+      "status": "completed",
+      "steps": {
+        "export": {
+          "status": "completed",
+          "message": "export done (舊資料，非本次 SRA)"
+        }
+      }
+    }
+  ],
+  "download_log_tail": "ENA wget for ERR14722499 timed out after ~62KB of 12MB; fallback to NCBI prefetch. CRC and T2D queued behind IBD. Auto-analyze waits until >=4 complete FASTQs per disease."
+}

@@ -40,7 +40,7 @@ python scripts/download_sra.py --limit 24    # 課程子集（每病均衡抽樣
 `/home/hlc/Desktop/QIIME2_2026/data/rawdata/`，
 並寫入 `metadata_sra_{IBD,CRC,T2D}.tsv`（`Group` = `ml_label`）。
 
-- 每 5 分鐘：`sra-qiime-ingest.timer`
+- 每小時把 10.0.1.100 進度寫入 [`docs/data/progress.json`](docs/data/progress.json) 並推到 GitHub Pages。
 - 每個疾病累積 ≥ 4 筆完整 FASTQ 後，自動 `POST /api/analyze`
 - 舊的 252 筆 rawdata 不會混進這次分析（只配對 SRA metadata）
 

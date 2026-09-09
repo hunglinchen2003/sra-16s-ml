@@ -178,6 +178,40 @@ async function loadLabels() {
   renderLabels();
 }
 
+async function loadProgress() {
+  const updated = $("progress-updated");
+  const cards = $("progress-cards");
+  const logBox = $("progress-log");
+  try {
+    const res = await fetch("data/progress.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("no progress.json");
+    const p = await res.json();
+    updated.textContent = `最後更新：${p.updated || "—"}（${p.note || ""}）`;
+    cards.innerHTML = "";
+    for (const [id, d] of Object.entries(p.diseases || {})) {
+      const pct = d.target ? Math.min(100, Math.round((d.fastq_files / d.target) * 100)) : 0;
+      const el = document.createElement("article");
+      el.className = "card";
+      el.innerHTML = `
+        <div class="id">${id}</div>
+        <h3>${d.fastq_files} / ${d.target} FASTQ</h3>
+        <p>${(d.fastq_bytes / 1048576).toFixed(1)} MB · metadata ${d.metadata_rows} 列</p>
+        <p>${d.ready_for_analyze ? "可送 8765 分析" : "未滿 4 筆，尚未自動分析"}</p>
+        <div class="bars"><span class="bar">${pct}%</span></div>`;
+      cards.appendChild(el);
+    }
+    const run = (p.qiime_runs && p.qiime_runs[0]) || null;
+    const proc = (p.processes || []).join("\n");
+    logBox.textContent =
+      (run ? `最新 QIIME run：${run.name} [${run.status}]\n` : "尚無本次 SRA 的 QIIME run\n") +
+      (proc ? `\n行程：\n${proc}\n` : "\n") +
+      (p.download_log_tail || "");
+  } catch (err) {
+    updated.textContent = "尚無進度快照。";
+    logBox.textContent = String(err);
+  }
+}
+
 async function loadStatus() {
   const box = $("download-status");
   const hit = await firstOk(API_CANDIDATES.map((b) => `${b}/status`));
@@ -225,6 +259,7 @@ $("label-disease").addEventListener("change", renderLabels);
 wirePresets();
 loadCatalog();
 loadLabels();
+loadProgress();
 loadStatus();
 setInterval(loadStatus, 15000);
 $("search-form").requestSubmit();
