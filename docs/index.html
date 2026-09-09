@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRA 16S Lab · 三疾病腸道菌相機器學習教材</title>
+  <meta name="description" content="搜尋 NCBI SRA 的 16S microbiota 資料，下載 IBD / CRC / T2D 樣品分群表，供機器學習課程使用。" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="kicker">NCBI SRA · 16S rRNA · machine learning classroom</p>
+      <h1>三疾病腸道菌相教材庫</h1>
+      <p class="lede">
+        從 SRA 找出 IBD、大腸直腸癌、第二型糖尿病的人類 16S 資料，
+        並附上可直接餵給分類器的<strong>樣品分群表</strong>。
+        序列下載跑在實驗室主機 <code>10.0.1.100</code>。
+      </p>
+      <nav class="links">
+        <a href="#search">搜尋 SRA</a>
+        <a href="#cohorts">三個隊列</a>
+        <a href="#ml">分群表</a>
+        <a href="#download">下載狀態</a>
+        <a href="https://github.com/hunglinchen2003/sra-16s-ml">GitHub</a>
+      </nav>
+    </header>
+
+    <section id="search" class="panel">
+      <div class="panel-head">
+        <h2>搜尋 SRA</h2>
+        <p>預設查人類糞便／腸道 16S amplicon。可改成 BioProject、SRP、疾病關鍵字。</p>
+      </div>
+      <form id="search-form" class="search-row">
+        <label class="grow">
+          <span>查詢</span>
+          <input id="q" name="q" value='AMPLICON[Strategy] AND 16S AND "Homo sapiens"[Organism] AND (stool OR feces) AND IBD' />
+        </label>
+        <button type="submit">搜尋</button>
+      </form>
+      <div class="chips" id="preset-chips"></div>
+      <p id="search-meta" class="muted"></p>
+      <div class="table-wrap">
+        <table id="search-table">
+          <thead>
+            <tr>
+              <th>Study</th>
+              <th>標題</th>
+              <th>策略</th>
+              <th>生物</th>
+              <th>NCBI</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="cohorts" class="panel">
+      <div class="panel-head">
+        <h2>選定的三個隊列</h2>
+        <p>公開資料、體積適合課程、且能從 BioSample／樣本代號抽出監督式學習標籤。</p>
+      </div>
+      <div class="cards" id="cohort-cards"></div>
+    </section>
+
+    <section id="ml" class="panel">
+      <div class="panel-head">
+        <h2>樣品分群（機器學習標籤）</h2>
+        <p>
+          每筆 run 對應 <code>ml_label</code>。下載
+          <a href="data/ml_labels.csv">ml_labels.csv</a>
+          或單一疾病檔。
+        </p>
+      </div>
+      <div class="toolbar">
+        <label>疾病
+          <select id="label-disease">
+            <option value="all">全部</option>
+            <option value="IBD">IBD</option>
+            <option value="CRC">CRC</option>
+            <option value="T2D">T2D</option>
+          </select>
+        </label>
+        <span id="label-count" class="muted"></span>
+      </div>
+      <div class="table-wrap tall">
+        <table id="label-table">
+          <thead>
+            <tr>
+              <th>疾病</th>
+              <th>Run</th>
+              <th>樣本</th>
+              <th>標籤</th>
+              <th>性別</th>
+              <th>年齡</th>
+              <th>組織</th>
+              <th>MB</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="download" class="panel">
+      <div class="panel-head">
+        <h2>10.0.1.100 下載</h2>
+        <p>
+          主機路徑 <code>/home/hlc/SRA_16S_ML/</code>。
+          若你在同一區網開啟本頁，可看到即時進度；GitHub Pages 則顯示教材檔與指令。
+        </p>
+      </div>
+      <pre id="download-status" class="status-box">正在偵測本機 API…</pre>
+      <ol class="steps">
+        <li>分群表已進 Git 與主機（不需再從 SRA 猜病例／對照）。</li>
+        <li>序列以 SRA Toolkit 3.4.1 <code>prefetch</code> + <code>fasterq-dump</code> 下載。</li>
+        <li>課程建議特徵：QIIME 2 相對豐度表 × <code>ml_labels.csv</code> → sklearn 分類。</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>
+        教材站原始碼
+        <a href="https://github.com/hunglinchen2003/sra-16s-ml">hunglinchen2003/sra-16s-ml</a>
+        · 資料仍屬 NCBI / 原作者，僅供教學。
+      </p>
+    </footer>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "updated": "2026-09-09",
+  "diseases": [
+    {
+      "id": "IBD",
+      "name_zh": "發炎性腸道疾病",
+      "name_en": "Inflammatory bowel disease",
+      "bioproject": "PRJEB86986",
+      "study": "ERP170281",
+      "region": "16S (PacBio Sequel IIe)",
+      "site": "stool",
+      "grouping": "IBD (SMH*) vs Healthy (HC*) from host subject id",
+      "ml_task": "binary classification",
+      "n": 77,
+      "groups": {
+        "IBD": 57,
+        "Healthy": 20
+      },
+      "size_MB": 872
+    },
+    {
+      "id": "CRC",
+      "name_zh": "大腸直腸癌",
+      "name_en": "Colorectal cancer",
+      "bioproject": "PRJNA989099",
+      "study": "SRP446495",
+      "region": "16S V3–V4 amplicon",
+      "site": "tumor / adjacent non-tumor / paired samples",
+      "grouping": "Tumor vs NonTumor (BioSample Sample origin + sample name)",
+      "ml_task": "binary / multiclass classification",
+      "n": 113,
+      "groups": {
+        "Tumor": 45,
+        "NonTumor": 45,
+        "StoolHealthyLike": 23
+      },
+      "size_MB": 6973
+    },
+    {
+      "id": "T2D",
+      "name_zh": "第二型糖尿病",
+      "name_en": "Type 2 diabetes",
+      "bioproject": "PRJNA1447078",
+      "study": "SRP688705",
+      "region": "16S rRNA amplicon",
+      "site": "stool",
+      "grouping": "T2D with vs without sensorineural hearing loss",
+      "ml_task": "binary classification (comorbidity phenotype)",
+      "n": 100,
+      "groups": {
+        "T2D_hearing_loss": 43,
+        "T2D_normal_hearing": 57
+      },
+      "size_MB": 1353
+    }
+  ]
+}

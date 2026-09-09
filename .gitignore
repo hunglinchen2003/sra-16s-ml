@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*.sra
+*.fastq
+*.fastq.gz
+SRA_16S_ML/
+logs/
+.DS_Store
+scripts/deploy_remote.py
+ssh_run.py
