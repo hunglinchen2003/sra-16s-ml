@@ -62,6 +62,36 @@ def run_cmd(cmd: list[str], log_path: Path) -> int:
     return p.returncode
 
 
+def ena_fastq_urls(run: str) -> list[str]:
+    import urllib.request
+
+    url = (
+        "https://www.ebi.ac.uk/ena/portal/api/filereport"
+        f"?accession={run}&result=read_run&fields=fastq_ftp&format=tsv"
+    )
+    req = urllib.request.Request(url, headers={"User-Agent": "sra-16s-ml/1.0"})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        text = r.read().decode("utf-8", "replace")
+    lines = [ln for ln in text.strip().splitlines() if ln]
+    if len(lines) < 2:
+        return []
+    ftp = lines[1].split("\t")[-1].strip()
+    if not ftp or ftp == "fastq_ftp":
+        return []
+    urls = []
+    for part in ftp.split(";"):
+        part = part.strip()
+        if not part:
+            continue
+        if part.startswith("ftp://"):
+            urls.append("https://" + part[len("ftp://") :])
+        elif part.startswith("http"):
+            urls.append(part)
+        else:
+            urls.append("https://" + part)
+    return urls
+
+
 def download_one(run: str, dest: Path, log_path: Path) -> None:
     sra_dir = dest / "sra"
     fq_dir = dest / "fastq"
@@ -70,6 +100,25 @@ def download_one(run: str, dest: Path, log_path: Path) -> None:
     if list(fq_dir.glob(f"{run}*")):
         log(log_path, f"skip existing fastq {run}")
         return
+    ena_urls = []
+    try:
+        ena_urls = ena_fastq_urls(run)
+    except Exception as exc:
+        log(log_path, f"ENA lookup failed {run}: {exc}")
+    if ena_urls:
+        log(log_path, f"ENA download {run} nfiles={len(ena_urls)}")
+        ok = True
+        for u in ena_urls:
+            name = u.rstrip("/").split("/")[-1]
+            out = fq_dir / name
+            rc = run_cmd(["wget", "-q", "-O", str(out), u], log_path)
+            if rc != 0:
+                ok = False
+                if out.exists() and out.stat().st_size == 0:
+                    out.unlink()
+        if ok:
+            return
+        log(log_path, f"ENA wget incomplete {run}, fallback prefetch")
     rc = run_cmd(
         [PREFETCH, run, "--max-size", MAX_SIZE, "-O", str(sra_dir)],
         log_path,
@@ -78,7 +127,17 @@ def download_one(run: str, dest: Path, log_path: Path) -> None:
         log(log_path, f"prefetch failed {run}")
         return
     run_cmd(
-        [FASTERQ, run, "-O", str(fq_dir), "-e", "4", "--split-files", "-t", str(dest / "tmp")],
+        [
+            FASTERQ,
+            run,
+            "-O",
+            str(fq_dir),
+            "-e",
+            "4",
+            "--split-files",
+            "-t",
+            str(dest / "tmp"),
+        ],
         log_path,
     )
 
