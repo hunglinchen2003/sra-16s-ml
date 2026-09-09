@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-10 01:47:00 CST",
+  "updated": "2026-09-10 02:47:00 CST",
   "host": "10.0.1.100",
-  "note": "GitHub Pages 每小時同步一次。01:47 查詢時主機 SSH（port 22）逾時，以下沿用 2026-09-09 16:38 成功連線的數字。",
+  "note": "GitHub Pages 每小時同步一次。02:47 查詢時主機 SSH（port 22）逾時，以下沿用 2026-09-09 16:38 成功連線的數字。",
   "analyze_url": "http://10.0.1.100:8765/",
   "poll_ok": false,
   "diseases": {
@@ -46,5 +46,5 @@
       }
     }
   ],
-  "download_log_tail": "Hourly poll at 2026-09-10 01:47 CST: TCP 22 to 10.0.1.100 timed out (ninth consecutive hour). Last live data from 2026-09-09 16:38: IBD 1 incomplete FASTQ (~62KB of 12MB), CRC 0, T2D 0. Auto-analyze still waiting for >=4 complete files per disease."
+  "download_log_tail": "Hourly poll at 2026-09-10 02:47 CST: TCP 22 to 10.0.1.100 timed out (tenth consecutive hour). Last live data from 2026-09-09 16:38: IBD 1 incomplete FASTQ (~62KB of 12MB), CRC 0, T2D 0. Auto-analyze still waiting for >=4 complete files per disease."
 }
