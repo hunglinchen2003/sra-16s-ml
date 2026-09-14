@@ -1,8 +1,8 @@
 {
-  "updated": "2026-09-14 12:30:00 CST",
+  "updated": "2026-09-14 12:47:00 CST",
   "host": "10.0.1.114",
   "poll_ok": true,
-  "note": "主機已改 10.0.1.114。下載完成。QIIME 白底深字：http://10.0.1.114:8765/ 。目前依序重跑 OTU/taxonomy（先 IBD，再 CRC、T2D）。",
+  "note": "QIIME http://10.0.1.114:8765/ （白底深字）。IBD 正在 DADA2/OTU；CRC、T2D 排隊。SSH 22 目前不通，WebUI 可連。",
   "analyze_url": "http://10.0.1.114:8765/",
   "diseases": {
     "IBD": {
@@ -36,24 +36,24 @@
   "processes": [],
   "qiime_runs": [
     {
-      "name": "run_b2a6089f_20260914_091751",
-      "status": "running",
+      "name": "run_d645431b_20260914_091751",
+      "status": "failed",
       "steps": {
         "validate": {
           "status": "completed",
-          "message": "100 samples OK (paired)"
+          "message": "113 samples OK (single)"
         },
         "import": {
           "status": "completed",
-          "message": "imported demux.qza (paired)"
+          "message": "imported demux.qza (single)"
         },
         "demux": {
           "status": "completed",
           "message": "demux summary"
         },
         "dada2": {
-          "status": "running",
-          "message": "DADA2 denoising"
+          "status": "failed",
+          "message": "/tmp/tmpj82ziio0: line 3: --: command not found\n\nERROR conda.cli.main_run:execute(125): `conda run -- qiime vsearch dereplicate-sequences --i-sequences /home/hl"
         },
         "phylogeny": {
           "status": "pending",
@@ -74,24 +74,24 @@
       }
     },
     {
-      "name": "run_d645431b_20260914_091751",
-      "status": "running",
+      "name": "run_b2a6089f_20260914_091751",
+      "status": "failed",
       "steps": {
         "validate": {
           "status": "completed",
-          "message": "113 samples OK (single)"
+          "message": "100 samples OK (paired)"
         },
         "import": {
-          "status": "running",
-          "message": "Import sequences"
+          "status": "completed",
+          "message": "imported demux.qza (paired)"
         },
         "demux": {
-          "status": "pending",
-          "message": "Demultiplex summary"
+          "status": "completed",
+          "message": "demux summary"
         },
         "dada2": {
-          "status": "pending",
-          "message": "DADA2 denoising"
+          "status": "failed",
+          "message": "/tmp/tmpqmyqvwv6: line 3: --: command not found\n\nERROR conda.cli.main_run:execute(125): `conda run -- qiime vsearch merge-pairs --i-demultiplexed-seqs /home/hlc"
         },
         "phylogeny": {
           "status": "pending",
@@ -113,7 +113,7 @@
     },
     {
       "name": "run_2b7f7a36_20260914_091751",
-      "status": "failed",
+      "status": "running",
       "steps": {
         "validate": {
           "status": "completed",
@@ -128,197 +128,7 @@
           "message": "demux summary"
         },
         "dada2": {
-          "status": "failed",
-          "message": "Usage: qiime dada2 denoise-single [OPTIONS]\n\n  This method denoises single-end sequences, dereplicates them, and filters\n  chimeras.\n\nInputs:\n  --i-demultiplexe"
-        },
-        "phylogeny": {
-          "status": "pending",
-          "message": "Build phylogeny"
-        },
-        "taxonomy": {
-          "status": "pending",
-          "message": "Taxonomy classification"
-        },
-        "diversity": {
-          "status": "pending",
-          "message": "Alpha & beta diversity"
-        },
-        "export": {
-          "status": "pending",
-          "message": "Export results"
-        }
-      }
-    },
-    {
-      "name": "run_551fbe1c_20260910_010837",
-      "status": "failed",
-      "steps": {
-        "validate": {
-          "status": "completed",
-          "message": "20 samples OK (paired)"
-        },
-        "import": {
-          "status": "completed",
-          "message": "imported demux.qza (paired)"
-        },
-        "demux": {
-          "status": "completed",
-          "message": "demux summary"
-        },
-        "dada2": {
-          "status": "failed",
-          "message": "Plugin error from dada2:\n\n  No reads passed the filter. trunc_len_f (250) or trunc_len_r (200) may be individually longer than read lengths, or trunc_len_f + tr"
-        },
-        "phylogeny": {
-          "status": "pending",
-          "message": "Build phylogeny"
-        },
-        "taxonomy": {
-          "status": "pending",
-          "message": "Taxonomy classification"
-        },
-        "diversity": {
-          "status": "pending",
-          "message": "Alpha & beta diversity"
-        },
-        "export": {
-          "status": "pending",
-          "message": "Export results"
-        }
-      }
-    },
-    {
-      "name": "run_eeb78a1d_20260910_010443",
-      "status": "failed",
-      "steps": {
-        "validate": {
-          "status": "completed",
-          "message": "14 samples OK (paired)"
-        },
-        "import": {
-          "status": "completed",
-          "message": "imported demux.qza (paired)"
-        },
-        "demux": {
-          "status": "completed",
-          "message": "demux summary"
-        },
-        "dada2": {
-          "status": "failed",
-          "message": "Plugin error from dada2:\n\n  No reads passed the filter. trunc_len_f (250) or trunc_len_r (200) may be individually longer than read lengths, or trunc_len_f + tr"
-        },
-        "phylogeny": {
-          "status": "pending",
-          "message": "Build phylogeny"
-        },
-        "taxonomy": {
-          "status": "pending",
-          "message": "Taxonomy classification"
-        },
-        "diversity": {
-          "status": "pending",
-          "message": "Alpha & beta diversity"
-        },
-        "export": {
-          "status": "pending",
-          "message": "Export results"
-        }
-      }
-    },
-    {
-      "name": "run_7e79a5ee_20260910_005943",
-      "status": "failed",
-      "steps": {
-        "validate": {
-          "status": "completed",
-          "message": "9 samples OK (paired)"
-        },
-        "import": {
-          "status": "completed",
-          "message": "imported demux.qza (paired)"
-        },
-        "demux": {
-          "status": "completed",
-          "message": "demux summary"
-        },
-        "dada2": {
-          "status": "failed",
-          "message": "Plugin error from dada2:\n\n  No reads passed the filter. trunc_len_f (250) or trunc_len_r (200) may be individually longer than read lengths, or trunc_len_f + tr"
-        },
-        "phylogeny": {
-          "status": "pending",
-          "message": "Build phylogeny"
-        },
-        "taxonomy": {
-          "status": "pending",
-          "message": "Taxonomy classification"
-        },
-        "diversity": {
-          "status": "pending",
-          "message": "Alpha & beta diversity"
-        },
-        "export": {
-          "status": "pending",
-          "message": "Export results"
-        }
-      }
-    },
-    {
-      "name": "run_bd889a5e_20260910_005159",
-      "status": "failed",
-      "steps": {
-        "validate": {
-          "status": "completed",
-          "message": "20 samples OK (single)"
-        },
-        "import": {
-          "status": "completed",
-          "message": "imported demux.qza (single)"
-        },
-        "demux": {
-          "status": "failed",
-          "message": "Plugin error from demux:\n\n  Compressed file ended before the end-of-stream marker was reached\n\nDebug info has been saved to /tmp/qiime2-q2cli-err-2i4terev.log\n\n"
-        },
-        "dada2": {
-          "status": "pending",
-          "message": "DADA2 denoising"
-        },
-        "phylogeny": {
-          "status": "pending",
-          "message": "Build phylogeny"
-        },
-        "taxonomy": {
-          "status": "pending",
-          "message": "Taxonomy classification"
-        },
-        "diversity": {
-          "status": "pending",
-          "message": "Alpha & beta diversity"
-        },
-        "export": {
-          "status": "pending",
-          "message": "Export results"
-        }
-      }
-    },
-    {
-      "name": "run_c0ef6d25_20260910_004940",
-      "status": "failed",
-      "steps": {
-        "validate": {
-          "status": "completed",
-          "message": "18 samples OK (single)"
-        },
-        "import": {
-          "status": "completed",
-          "message": "imported demux.qza (single)"
-        },
-        "demux": {
-          "status": "failed",
-          "message": "Plugin error from demux:\n\n  Compressed file ended before the end-of-stream marker was reached\n\nDebug info has been saved to /tmp/qiime2-q2cli-err-b8nz5gdm.log\n\n"
-        },
-        "dada2": {
-          "status": "pending",
+          "status": "running",
           "message": "DADA2 denoising"
         },
         "phylogeny": {
@@ -340,5 +150,5 @@
       }
     }
   ],
-  "download_log_tail": "2026-09-14 12:30 CST: host 10.0.1.114 back. High-contrast WebUI deployed. Sequential resume IBD DADA2/VSEARCH OTU running (then CRC, T2D). FASTQ complete in Desktop/2026data."
+  "download_log_tail": "Hourly poll 2026-09-14 12:47 CST: 10.0.1.114 WebUI up, SSH 22 timed out. IBD dada2 running; CRC/T2D dada2 still failed (queued after IBD). FASTQ complete in 2026data."
 }
