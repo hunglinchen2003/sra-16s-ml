@@ -1,7 +1,8 @@
 {
-  "updated": "2026-09-14 09:48:18 CST",
+  "updated": "2026-09-14 10:47:00 CST",
   "host": "10.0.1.111",
-  "note": "下載已完成（桌面 2026data）。QIIME 分析進度：http://10.0.1.111:8765/ ；區網搜尋 http://10.0.1.111:8770/",
+  "poll_ok": false,
+  "note": "Hourly poll: 10.0.1.111 SSH/8765 timed out. Last live snapshot 09:48 CST. 下載已完成（2026data）。主機恢復後會套白底深字並續跑 OTU/taxonomy。",
   "analyze_url": "http://10.0.1.111:8765/",
   "diseases": {
     "IBD": {
@@ -339,5 +340,5 @@
       }
     }
   ],
-  "download_log_tail": ".. 91% 99.8K 1s\n  3700K .......... .......... .......... .......... .......... 93%  122K 1s\n  3750K .......... .......... .......... .......... .......... 94% 10.9M 1s\n  3800K .......... .......... .......... .......... .......... 95% 9.39M 1s\n  3850K .......... .......... .......... .......... .......... 96%  125K 1s\n  3900K .......... .......... .......... .......... .......... 98% 11.7M 0s\n  3950K .......... .......... .......... .......... .......... 99%  168K 0s\n  4000K .......... .......... ..                              100% 9.66M=17s\n\n2026-09-10 01:08:37 (232 KB/s) - ‘/home/hlc/SRA_16S_ML/T2D/fastq/SRR37899282_2.fastq.gz’ saved [4118539/4118539]\n\n\nexit=0\ningest+analyze T2D\n$ /home/hlc/anaconda3/envs/rachis-qiime2-2026.4/bin/python /home/hlc/sra-16s-ml/scripts/ingest_sra_qiime.py --disease T2D\n[\n  {\n    \"disease\": \"T2D\",\n    \"ready\": 20,\n    \"metadata\": \"metadata_sra_T2D.tsv\",\n    \"samples\": [\n      \"SRR37899263\",\n      \"SRR37899274\",\n      \"SRR37899282\",\n      \"SRR37899283\",\n      \"SRR37899284\",\n      \"SRR37899285\",\n      \"SRR37899286\",\n      \"SRR37899287\",\n      \"SRR37899288\",\n      \"SRR37899289\",\n      \"SRR37899290\",\n      \"SRR37899291\",\n      \"SRR37899292\",\n      \"SRR37899296\",\n      \"SRR37899313\",\n      \"SRR37899324\",\n      \"SRR37899331\",\n      \"SRR37899342\",\n      \"SRR37899353\",\n      \"SRR37899354\"\n    ],\n    \"analyze\": {\n      \"job_id\": \"551fbe1c\",\n      \"output_dir\": \"/home/hlc/Desktop/QIIME2_2026/results/run_551fbe1c_20260910_010837\"\n    }\n  }\n]\n\nexit=0\ndone\n"
+  "download_log_tail": "Hourly poll at 2026-09-14 10:47 CST: TCP 22 and 8765 to 10.0.1.111 timed out (host unreachable since ~09:52). Last live QIIME: IBD DADA2 failed; CRC importing; T2D DADA2 running. FASTQ complete in Desktop/2026data (IBD 77, CRC 113, T2D 100 samples)."
 }
