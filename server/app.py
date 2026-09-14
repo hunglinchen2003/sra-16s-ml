@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SRA 16S Lab API — search NCBI and report download status on 10.0.1.111."""
+"""SRA 16S Lab API — search NCBI and report download status on 10.0.1.114."""
 from __future__ import annotations
 
 import csv
@@ -89,7 +89,7 @@ def api_status() -> dict:
             else "",
         }
     return {
-        "host": "10.0.1.111",
+        "host": "10.0.1.114",
         "root": str(ROOT),
         "diseases": diseases,
         "web": str(WEB),

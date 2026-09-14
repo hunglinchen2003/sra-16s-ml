@@ -18,7 +18,7 @@ const PRESETS = [
 
 const API_CANDIDATES = [
   `${location.origin}/api`,
-  "http://10.0.1.111:8770/api",
+  "http://10.0.1.114:8770/api",
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -56,7 +56,7 @@ async function searchSra(term) {
     "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=sra&retmode=json&retmax=25&term=" +
     encodeURIComponent(term);
   const es = await fetch(eutils);
-  if (!es.ok) throw new Error("NCBI esearch 失敗（GitHub Pages 可能被 CORS 擋住，請用 10.0.1.111:8770）");
+  if (!es.ok) throw new Error("NCBI esearch 失敗（GitHub Pages 可能被 CORS 擋住，請用 10.0.1.114:8770）");
   const sj = await es.json();
   const ids = sj.esearchresult?.idlist || [];
   if (!ids.length) return { count: 0, hits: [] };
@@ -217,8 +217,8 @@ async function loadStatus() {
   const hit = await firstOk(API_CANDIDATES.map((b) => `${b}/status`));
   if (!hit) {
     box.textContent =
-      "目前是 GitHub Pages 靜態站，看不到 10.0.1.111 的下載行程（HTTPS 不能呼叫區網 HTTP）。\n" +
-      "請在區網開啟 http://10.0.1.111:8770/ 看進度。\n" +
+      "目前是 GitHub Pages 靜態站，看不到 10.0.1.114 的下載行程（HTTPS 不能呼叫區網 HTTP）。\n" +
+      "請在區網開啟 http://10.0.1.114:8770/ 看進度。\n" +
       "主機目錄：/home/hlc/SRA_16S_ML/{IBD,CRC,T2D}/{sra,fastq,metadata}";
     return;
   }

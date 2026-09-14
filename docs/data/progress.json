@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-14 11:48:00 CST",
-  "host": "10.0.1.111",
-  "poll_ok": false,
-  "note": "Hourly poll: 10.0.1.111 SSH/8765 timed out (2nd consecutive hour). Last live snapshot 09:48 CST. 下載已完成（2026data）。主機恢復後會套白底深字並續跑 OTU/taxonomy。",
-  "analyze_url": "http://10.0.1.111:8765/",
+  "updated": "2026-09-14 12:30:00 CST",
+  "host": "10.0.1.114",
+  "poll_ok": true,
+  "note": "主機已改 10.0.1.114。下載完成。QIIME 白底深字：http://10.0.1.114:8765/ 。目前依序重跑 OTU/taxonomy（先 IBD，再 CRC、T2D）。",
+  "analyze_url": "http://10.0.1.114:8765/",
   "diseases": {
     "IBD": {
       "target": 77,
@@ -340,5 +340,5 @@
       }
     }
   ],
-  "download_log_tail": "Hourly poll at 2026-09-14 11:48 CST: TCP 22 and 8765 to 10.0.1.111 timed out (2nd consecutive hour, unreachable since ~09:52). Last live QIIME: IBD DADA2 failed; CRC importing; T2D DADA2 running. FASTQ complete in Desktop/2026data (IBD 77, CRC 113, T2D 100 samples)."
+  "download_log_tail": "2026-09-14 12:30 CST: host 10.0.1.114 back. High-contrast WebUI deployed. Sequential resume IBD DADA2/VSEARCH OTU running (then CRC, T2D). FASTQ complete in Desktop/2026data."
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect SRA download + QIIME job progress as JSON (run on 10.0.1.111)."""
+"""Collect SRA download + QIIME job progress as JSON (run on 10.0.1.114)."""
 from __future__ import annotations
 
 import json
@@ -108,9 +108,9 @@ def main() -> None:
         }
     snapshot = {
         "updated": datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %Z"),
-        "host": "10.0.1.111",
-        "note": "下載已完成（桌面 2026data）。QIIME 分析進度：http://10.0.1.111:8765/ ；區網搜尋 http://10.0.1.111:8770/",
-        "analyze_url": "http://10.0.1.111:8765/",
+        "host": "10.0.1.114",
+        "note": "下載已完成（桌面 2026data）。QIIME 分析進度：http://10.0.1.114:8765/ ；區網搜尋 http://10.0.1.114:8770/",
+        "analyze_url": "http://10.0.1.114:8765/",
         "diseases": diseases,
         "processes": procs(),
         "qiime_runs": qiime_runs(),
