@@ -14,3 +14,5 @@ _remote_pipeline.py
 _remote_main.py
 scripts/_push_ingest.py
 scripts/_sync_progress.py
+scripts/_push_site.py
+scripts/_check_webui.py

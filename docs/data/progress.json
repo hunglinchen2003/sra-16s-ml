@@ -1,50 +1,226 @@
 {
-  "updated": "2026-09-14 08:48:00 CST",
-  "host": "10.0.1.100",
-  "note": "GitHub Pages 每小時同步一次。08:48 查詢時主機 SSH（port 22）逾時，以下沿用 2026-09-09 16:38 成功連線的數字。",
-  "analyze_url": "http://10.0.1.100:8765/",
-  "poll_ok": false,
+  "updated": "2026-09-14 09:00:03 CST",
+  "host": "10.0.1.111",
+  "note": "GitHub Pages 每小時同步一次；區網 http://10.0.1.111:8770/ 較即時。",
+  "analyze_url": "http://10.0.1.111:8765/",
   "diseases": {
     "IBD": {
       "target": 20,
-      "fastq_files": 1,
-      "fastq_bytes": 63488,
-      "sra_files": 1,
-      "metadata_rows": 0,
-      "ready_for_analyze": false
+      "fastq_files": 17,
+      "fastq_bytes": 204674064,
+      "sra_files": 0,
+      "metadata_rows": 11,
+      "ready_for_analyze": true
     },
     "CRC": {
       "target": 20,
-      "fastq_files": 0,
-      "fastq_bytes": 0,
+      "fastq_files": 21,
+      "fastq_bytes": 698640335,
       "sra_files": 0,
-      "metadata_rows": 0,
-      "ready_for_analyze": false
+      "metadata_rows": 20,
+      "ready_for_analyze": true
     },
     "T2D": {
       "target": 20,
-      "fastq_files": 0,
-      "fastq_bytes": 0,
+      "fastq_files": 40,
+      "fastq_bytes": 160979692,
       "sra_files": 0,
-      "metadata_rows": 0,
-      "ready_for_analyze": false
+      "metadata_rows": 20,
+      "ready_for_analyze": true
     }
   },
-  "processes": [
-    "download_sra.py --limit 20 (16:38 時尚在跑)",
-    "prefetch ERR14722499 (16:38 NCBI fallback)"
-  ],
+  "processes": [],
   "qiime_runs": [
     {
-      "name": "run_852f8cea_20260623_163453",
-      "status": "completed",
+      "name": "run_551fbe1c_20260910_010837",
+      "status": "failed",
       "steps": {
-        "export": {
+        "validate": {
           "status": "completed",
-          "message": "export done (舊資料，非本次 SRA)"
+          "message": "20 samples OK (paired)"
+        },
+        "import": {
+          "status": "completed",
+          "message": "imported demux.qza (paired)"
+        },
+        "demux": {
+          "status": "completed",
+          "message": "demux summary"
+        },
+        "dada2": {
+          "status": "failed",
+          "message": "Plugin error from dada2:\n\n  No reads passed the filter. trunc_len_f (250) or trunc_len_r (200) may be individually longer than read lengths, or trunc_len_f + tr"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
+        }
+      }
+    },
+    {
+      "name": "run_eeb78a1d_20260910_010443",
+      "status": "failed",
+      "steps": {
+        "validate": {
+          "status": "completed",
+          "message": "14 samples OK (paired)"
+        },
+        "import": {
+          "status": "completed",
+          "message": "imported demux.qza (paired)"
+        },
+        "demux": {
+          "status": "completed",
+          "message": "demux summary"
+        },
+        "dada2": {
+          "status": "failed",
+          "message": "Plugin error from dada2:\n\n  No reads passed the filter. trunc_len_f (250) or trunc_len_r (200) may be individually longer than read lengths, or trunc_len_f + tr"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
+        }
+      }
+    },
+    {
+      "name": "run_7e79a5ee_20260910_005943",
+      "status": "failed",
+      "steps": {
+        "validate": {
+          "status": "completed",
+          "message": "9 samples OK (paired)"
+        },
+        "import": {
+          "status": "completed",
+          "message": "imported demux.qza (paired)"
+        },
+        "demux": {
+          "status": "completed",
+          "message": "demux summary"
+        },
+        "dada2": {
+          "status": "failed",
+          "message": "Plugin error from dada2:\n\n  No reads passed the filter. trunc_len_f (250) or trunc_len_r (200) may be individually longer than read lengths, or trunc_len_f + tr"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
+        }
+      }
+    },
+    {
+      "name": "run_bd889a5e_20260910_005159",
+      "status": "failed",
+      "steps": {
+        "validate": {
+          "status": "completed",
+          "message": "20 samples OK (single)"
+        },
+        "import": {
+          "status": "completed",
+          "message": "imported demux.qza (single)"
+        },
+        "demux": {
+          "status": "failed",
+          "message": "Plugin error from demux:\n\n  Compressed file ended before the end-of-stream marker was reached\n\nDebug info has been saved to /tmp/qiime2-q2cli-err-2i4terev.log\n\n"
+        },
+        "dada2": {
+          "status": "pending",
+          "message": "DADA2 denoising"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
+        }
+      }
+    },
+    {
+      "name": "run_c0ef6d25_20260910_004940",
+      "status": "failed",
+      "steps": {
+        "validate": {
+          "status": "completed",
+          "message": "18 samples OK (single)"
+        },
+        "import": {
+          "status": "completed",
+          "message": "imported demux.qza (single)"
+        },
+        "demux": {
+          "status": "failed",
+          "message": "Plugin error from demux:\n\n  Compressed file ended before the end-of-stream marker was reached\n\nDebug info has been saved to /tmp/qiime2-q2cli-err-b8nz5gdm.log\n\n"
+        },
+        "dada2": {
+          "status": "pending",
+          "message": "DADA2 denoising"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
         }
       }
     }
   ],
-  "download_log_tail": "Hourly poll at 2026-09-14 08:48 CST: TCP 22 to 10.0.1.100 timed out (112th consecutive hour). Last live data from 2026-09-09 16:38: IBD 1 incomplete FASTQ (~62KB of 12MB), CRC 0, T2D 0. Auto-analyze still waiting for >=4 complete files per disease."
+  "download_log_tail": ".. 91% 99.8K 1s\n  3700K .......... .......... .......... .......... .......... 93%  122K 1s\n  3750K .......... .......... .......... .......... .......... 94% 10.9M 1s\n  3800K .......... .......... .......... .......... .......... 95% 9.39M 1s\n  3850K .......... .......... .......... .......... .......... 96%  125K 1s\n  3900K .......... .......... .......... .......... .......... 98% 11.7M 0s\n  3950K .......... .......... .......... .......... .......... 99%  168K 0s\n  4000K .......... .......... ..                              100% 9.66M=17s\n\n2026-09-10 01:08:37 (232 KB/s) - ‘/home/hlc/SRA_16S_ML/T2D/fastq/SRR37899282_2.fastq.gz’ saved [4118539/4118539]\n\n\nexit=0\ningest+analyze T2D\n$ /home/hlc/anaconda3/envs/rachis-qiime2-2026.4/bin/python /home/hlc/sra-16s-ml/scripts/ingest_sra_qiime.py --disease T2D\n[\n  {\n    \"disease\": \"T2D\",\n    \"ready\": 20,\n    \"metadata\": \"metadata_sra_T2D.tsv\",\n    \"samples\": [\n      \"SRR37899263\",\n      \"SRR37899274\",\n      \"SRR37899282\",\n      \"SRR37899283\",\n      \"SRR37899284\",\n      \"SRR37899285\",\n      \"SRR37899286\",\n      \"SRR37899287\",\n      \"SRR37899288\",\n      \"SRR37899289\",\n      \"SRR37899290\",\n      \"SRR37899291\",\n      \"SRR37899292\",\n      \"SRR37899296\",\n      \"SRR37899313\",\n      \"SRR37899324\",\n      \"SRR37899331\",\n      \"SRR37899342\",\n      \"SRR37899353\",\n      \"SRR37899354\"\n    ],\n    \"analyze\": {\n      \"job_id\": \"551fbe1c\",\n      \"output_dir\": \"/home/hlc/Desktop/QIIME2_2026/results/run_551fbe1c_20260910_010837\"\n    }\n  }\n]\n\nexit=0\ndone\n"
 }
