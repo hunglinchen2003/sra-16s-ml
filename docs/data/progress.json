@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14 16:47:00 CST",
+  "updated": "2026-09-14 17:47:00 CST",
   "host": "10.0.1.114",
   "poll_ok": true,
   "note": "QIIME http://10.0.1.114:8765/ 。白底深字。依序 OTU/taxonomy。",
@@ -128,11 +128,11 @@
           "message": "demux summary"
         },
         "dada2": {
-          "status": "running",
-          "message": "DADA2 denoising"
+          "status": "completed",
+          "message": "OTU/ASV done (single, dada2)"
         },
         "phylogeny": {
-          "status": "pending",
+          "status": "running",
           "message": "Build phylogeny"
         },
         "taxonomy": {
@@ -150,5 +150,5 @@
       }
     }
   ],
-  "download_log_tail": "Hourly poll 2026-09-14 16:47 CST. d645431b=failed; b2a6089f=failed; 2b7f7a36=running"
+  "download_log_tail": "Hourly poll 2026-09-14 17:47 CST. d645431b=failed; b2a6089f=failed; 2b7f7a36=running"
 }
