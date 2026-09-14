@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Download 16S runs + keep grouping tables on 10.0.1.114."""
+"""Download 16S runs + keep grouping tables on 10.0.1.118."""
 from __future__ import annotations
 
 import argparse

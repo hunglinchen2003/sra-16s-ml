@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-14 22:47:00 CST",
-  "host": "10.0.1.114",
-  "poll_ok": false,
-  "note": "22:47 CST 仍無法連上 10.0.1.114（SSH/QIIME 逾時）。上次狀態：IBD taxonomy 仍在跑。請重開 omics 後告知新 IP。",
-  "analyze_url": "http://10.0.1.114:8765/",
+  "updated": "2026-09-14 23:47:00 CST",
+  "host": "10.0.1.118",
+  "poll_ok": true,
+  "note": "QIIME http://10.0.1.118:8765/ 。IP 改為 10.0.1.118。白底深字。依序 OTU/taxonomy。",
+  "analyze_url": "http://10.0.1.118:8765/",
   "diseases": {
     "IBD": {
       "target": 77,
@@ -150,5 +150,5 @@
       }
     }
   ],
-  "download_log_tail": "Hourly poll 2026-09-14 22:47 CST. Host 10.0.1.114 still unreachable. Last known: IBD taxonomy running; CRC/T2D queued."
+  "download_log_tail": "Hourly poll 2026-09-14 23:47 CST. Host 10.0.1.118. d645431b=failed; b2a6089f=failed; 2b7f7a36=running"
 }
