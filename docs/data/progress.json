@@ -1,36 +1,153 @@
 {
-  "updated": "2026-09-14 09:00:03 CST",
+  "updated": "2026-09-14 09:48:18 CST",
   "host": "10.0.1.111",
-  "note": "GitHub Pages 每小時同步一次；區網 http://10.0.1.111:8770/ 較即時。",
+  "note": "下載已完成（桌面 2026data）。QIIME 分析進度：http://10.0.1.111:8765/ ；區網搜尋 http://10.0.1.111:8770/",
   "analyze_url": "http://10.0.1.111:8765/",
   "diseases": {
     "IBD": {
-      "target": 20,
-      "fastq_files": 17,
-      "fastq_bytes": 204674064,
+      "target": 77,
+      "fastq_files": 77,
+      "fastq_bytes": 3920946594,
       "sra_files": 0,
-      "metadata_rows": 11,
-      "ready_for_analyze": true
+      "metadata_rows": 77,
+      "ready_for_analyze": true,
+      "fastq_source": "/home/hlc/Desktop/2026data/IBD/fastq"
     },
     "CRC": {
-      "target": 20,
-      "fastq_files": 21,
-      "fastq_bytes": 698640335,
+      "target": 113,
+      "fastq_files": 113,
+      "fastq_bytes": 22080889366,
       "sra_files": 0,
-      "metadata_rows": 20,
-      "ready_for_analyze": true
+      "metadata_rows": 113,
+      "ready_for_analyze": true,
+      "fastq_source": "/home/hlc/Desktop/2026data/CRC/fastq"
     },
     "T2D": {
-      "target": 20,
-      "fastq_files": 40,
-      "fastq_bytes": 160979692,
+      "target": 100,
+      "fastq_files": 200,
+      "fastq_bytes": 11987579924,
       "sra_files": 0,
-      "metadata_rows": 20,
-      "ready_for_analyze": true
+      "metadata_rows": 100,
+      "ready_for_analyze": true,
+      "fastq_source": "/home/hlc/Desktop/2026data/T2D/fastq"
     }
   },
   "processes": [],
   "qiime_runs": [
+    {
+      "name": "run_b2a6089f_20260914_091751",
+      "status": "running",
+      "steps": {
+        "validate": {
+          "status": "completed",
+          "message": "100 samples OK (paired)"
+        },
+        "import": {
+          "status": "completed",
+          "message": "imported demux.qza (paired)"
+        },
+        "demux": {
+          "status": "completed",
+          "message": "demux summary"
+        },
+        "dada2": {
+          "status": "running",
+          "message": "DADA2 denoising"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
+        }
+      }
+    },
+    {
+      "name": "run_d645431b_20260914_091751",
+      "status": "running",
+      "steps": {
+        "validate": {
+          "status": "completed",
+          "message": "113 samples OK (single)"
+        },
+        "import": {
+          "status": "running",
+          "message": "Import sequences"
+        },
+        "demux": {
+          "status": "pending",
+          "message": "Demultiplex summary"
+        },
+        "dada2": {
+          "status": "pending",
+          "message": "DADA2 denoising"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
+        }
+      }
+    },
+    {
+      "name": "run_2b7f7a36_20260914_091751",
+      "status": "failed",
+      "steps": {
+        "validate": {
+          "status": "completed",
+          "message": "77 samples OK (single)"
+        },
+        "import": {
+          "status": "completed",
+          "message": "imported demux.qza (single)"
+        },
+        "demux": {
+          "status": "completed",
+          "message": "demux summary"
+        },
+        "dada2": {
+          "status": "failed",
+          "message": "Usage: qiime dada2 denoise-single [OPTIONS]\n\n  This method denoises single-end sequences, dereplicates them, and filters\n  chimeras.\n\nInputs:\n  --i-demultiplexe"
+        },
+        "phylogeny": {
+          "status": "pending",
+          "message": "Build phylogeny"
+        },
+        "taxonomy": {
+          "status": "pending",
+          "message": "Taxonomy classification"
+        },
+        "diversity": {
+          "status": "pending",
+          "message": "Alpha & beta diversity"
+        },
+        "export": {
+          "status": "pending",
+          "message": "Export results"
+        }
+      }
+    },
     {
       "name": "run_551fbe1c_20260910_010837",
       "status": "failed",

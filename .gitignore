@@ -16,3 +16,15 @@ scripts/_push_ingest.py
 scripts/_sync_progress.py
 scripts/_push_site.py
 scripts/_check_webui.py
+_qiime_ui/
+scripts/_find_data.py
+scripts/_inspect_2026data.py
+scripts/_inspect_fastq.py
+scripts/_preflight.py
+scripts/_get_ui.py
+scripts/_deploy_analyze.py
+scripts/_run_ingest.py
+scripts/_unit.py
+scripts/_unit2.py
+scripts/_deploy_clock.py
+scripts/_push_site.py
