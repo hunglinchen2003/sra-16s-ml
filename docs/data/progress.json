@@ -1,8 +1,8 @@
 {
-  "updated": "2026-09-14 20:47:00 CST",
+  "updated": "2026-09-14 21:47:00 CST",
   "host": "10.0.1.114",
   "poll_ok": false,
-  "note": "20:47 CST 無法連上 10.0.1.114（SSH/QIIME 逾時）。上次狀態：IBD taxonomy 仍在跑。請重開 omics 後告知新 IP。",
+  "note": "21:47 CST 仍無法連上 10.0.1.114（SSH/QIIME 逾時）。上次狀態：IBD taxonomy 仍在跑。請重開 omics 後告知新 IP。",
   "analyze_url": "http://10.0.1.114:8765/",
   "diseases": {
     "IBD": {
@@ -150,5 +150,5 @@
       }
     }
   ],
-  "download_log_tail": "Hourly poll 2026-09-14 20:47 CST. Host 10.0.1.114 unreachable (SSH/QIIME timeout). Last known: IBD taxonomy running; CRC/T2D queued."
+  "download_log_tail": "Hourly poll 2026-09-14 21:47 CST. Host 10.0.1.114 still unreachable. Last known: IBD taxonomy running; CRC/T2D queued."
 }
