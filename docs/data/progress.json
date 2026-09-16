@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-16 16:47:00 CST",
+  "updated": "2026-09-16 17:47:00 CST",
   "host": "10.0.1.118",
   "poll_ok": true,
   "note": "QIIME http://10.0.1.118:8765/ 。白底深字。依序 OTU/taxonomy。",
@@ -150,5 +150,5 @@
       }
     }
   ],
-  "download_log_tail": "Hourly poll 2026-09-16 16:47 CST. Host 10.0.1.118. d645431b=failed; b2a6089f=failed; 2b7f7a36=running"
+  "download_log_tail": "Hourly poll 2026-09-16 17:47 CST. Host 10.0.1.118. d645431b=failed; b2a6089f=failed; 2b7f7a36=running"
 }
